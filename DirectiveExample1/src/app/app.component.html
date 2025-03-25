@@ -1,5 +1,5 @@
 
-<h1> Welcome to {{title}}</h1>
+<h1 [ngStyle]="{backgroundColor : 'red'}"> Welcome to {{title}}</h1>
 
 <input type="text" [(ngModel)] ="newItem" placeholder=" Enter new item"/>
  
@@ -13,7 +13,7 @@
 <u>
   @for( item of items; track item){
 
-    <li>{{item}}</li>
+    <li [ngStyle]="{color : getColor(item)}">{{item}}</li>
   }
 </u>
 
@@ -24,3 +24,31 @@
 <ul>
   <li *ngFor="let item of items; track item">{{item}} </li>
 </ul>
+
+
+<h2> List of names</h2>
+
+@for( name of names; track name){
+
+ 
+  <p [ngClass] = "{bg : applyClass(name)}"> {{name}}</p>
+}
+
+<table>
+  <tr>
+  <th>Id</th>
+  <th>Name</th>
+  <th>Age</th>
+</tr>
+
+
+@for(user of users; track user.id){
+  <tr>
+    <td> {{user.id}}</td>
+    <td> {{user.name}}</td>
+    <td> {{user.age}}</td>
+  </tr>
+}
+
+
+</table>
