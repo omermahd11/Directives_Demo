@@ -4,7 +4,12 @@
 <input type="text" [(ngModel)] ="newItem" placeholder=" Enter new item"/>
  
 <Button (click)="addItem()">Add Item</Button>
+
+@if(items.length > 0){
 <h2> List of Items</h2>
+}@else{
+  <h2> empty list</h2>
+}
 <u>
   @for( item of items; track item){
 
